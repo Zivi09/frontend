@@ -8,7 +8,7 @@ const LoginPage = () => {
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Simple validation (you can expand this)
+    // Simple validation
     if (!email || !password) {
       setError("Both fields are required!");
       return;
@@ -21,12 +21,15 @@ const LoginPage = () => {
     setEmail("");
     setPassword("");
     setError("");
+
+    // Redirect to another page on successful login (using full reload)
+    window.location.href = "/dashboard"; // Adjust path as needed
   };
 
   return (
     <div
       className="flex items-center justify-center min-h-screen bg-cover bg-center"
-      style={{ backgroundImage: "url('/src/assets/Image/img1.jpeg')" }} // Replace with actual image path
+      style={{ backgroundImage: "url('/src/Images/img1.jpeg')" }} // Replace with actual image path
     >
       <div className="w-full max-w-md p-6 space-y-8 bg-white bg-opacity-80 rounded-lg shadow-lg">
         <h2 className="text-2xl font-bold text-center">Login</h2>
@@ -37,10 +40,7 @@ const LoginPage = () => {
 
         <form onSubmit={handleLogin} className="space-y-6">
           <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
-            >
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
               Email
             </label>
             <input
@@ -54,10 +54,7 @@ const LoginPage = () => {
           </div>
 
           <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-gray-700"
-            >
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
               Password
             </label>
             <input
